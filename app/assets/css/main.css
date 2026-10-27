@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+
+/* 1. Базовые стили теперь внутри файлов тем */
+@import '@kangc/v-md-editor/lib/theme/style/github.css';
+
+/* 2. Подсветка синтаксиса */
+@import 'prismjs/themes/prism.css';
+
+/* 3. Если вы используете иконки (например, от Unicons или Iconify) */
+/* @import '@kangc/v-md-editor/lib/iconfont/iconfont.css'; */ 
+
+@theme static {
+  --font-sans: 'Public Sans', sans-serif;
+
+  --color-green-50: #EFFDF5;
+  --color-green-100: #D9FBE8;
+  --color-green-200: #B3F5D1;
+  --color-green-300: #75EDAE;
+  --color-green-400: #00DC82;
+  --color-green-500: #00C16A;
+  --color-green-600: #00A155;
+  --color-green-700: #007F45;
+  --color-green-800: #016538;
+  --color-green-900: #0A5331;
+  --color-green-950: #052E16;
+}
+
+
+/* assets/css/editor-fix.css */
+
+/* 1. Гарантируем высоту контейнера */
+.v-md-editor {
+  height: 600px !important;
+  min-height: 600px !important;
+  border: 1px solid #ddd !important; /* Чтобы видеть границы */
+}
+
+/* 2. Гарантируем высоту IFRAME и его внутренних элементов */
+.v-md-editor-iframe,
+.v-md-editor-iframe html,
+.v-md-editor-iframe body {
+  height: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 10px !important;
+}
+
+/* 3. Если используется dark-mode, принудительно задаем фон */
+html.dark .v-md-editor-iframe {
+  background-color: #1e1e1e !important;
+}

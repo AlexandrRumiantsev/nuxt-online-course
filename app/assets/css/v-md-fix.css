@@ -1,0 +1,32 @@
+/* assets/css/v-md-fix.css */
+
+/* 1. Фикс для контейнера редактора */
+.v-md-editor {
+  height: 600px !important;
+  min-height: 600px !important;
+  display: block !important;
+  border: 1px solid #ccc !important; /* Временно, чтобы видеть границы */
+}
+
+/* 2. Фикс для IFRAME (самое важное) */
+.v-md-editor-iframe,
+.v-md-editor-iframe html,
+.v-md-editor-iframe body {
+  height: 100% !important;
+  min-height: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 10px !important;
+  width: 100% !important;
+}
+
+/* 3. Если вы используете dark mode, фиксим фон */
+html.dark .v-md-editor-iframe {
+  background-color: #1e1e1e !important;
+  color: #fff !important;
+}
+
+/* 4. Фикс для тулбара, если он уехал */
+.v-md-editor__toolbar {
+  border-bottom: 1px solid #ddd !important;
+}

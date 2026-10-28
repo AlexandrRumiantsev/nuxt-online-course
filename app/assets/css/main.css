@@ -1,16 +1,6 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
-
-
-/* 1. Базовые стили теперь внутри файлов тем */
 @import '@kangc/v-md-editor/lib/theme/style/github.css';
-
-/* 2. Подсветка синтаксиса */
-@import 'prismjs/themes/prism.css';
-
-/* 3. Если вы используете иконки (например, от Unicons или Iconify) */
-/* @import '@kangc/v-md-editor/lib/iconfont/iconfont.css'; */ 
-
 @theme static {
   --font-sans: 'Public Sans', sans-serif;
 

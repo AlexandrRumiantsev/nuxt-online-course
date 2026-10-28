@@ -4,9 +4,8 @@ import { useFetch } from '#app'
 import * as VMdEditor from '@kangc/v-md-editor'
 import githubTheme from '@kangc/v-md-editor/lib/theme/github.js'
 
-// Импорты CSS оставляем здесь (или переносим в nuxt.config)
-import '@kangc/v-md-editor/lib/theme/style/github.css'
-import 'prismjs/themes/prism.css'
+// CSS v-md-editor подключён глобально в nuxt.config.ts (base-editor.css,
+// preview.css, theme github.css, prism.css) — здесь дублировать не нужно.
 
 const { data, pending, error } = await useFetch('/api/hello', {
   method: 'POST',
@@ -35,12 +34,12 @@ onMounted(async () => {
         {{ isEditing ? 'В режим просмотра' : 'Редактировать' }}
       </button>
 
-      <!-- ClientOnly изолирует редактор от серверного рендеринга -->
-      <ClientOnly>
+
         <div v-if="isPrismReady">
           <v-md-editor 
             v-if="isEditing" 
-            v-model="markdownText" 
+            v-model="markdownText"
+            :key="'editor-' + isEditing"
             height="600px" 
             placeholder="Введите текст..."
           />
@@ -55,7 +54,6 @@ onMounted(async () => {
         <div v-else class="h-[600px] flex items-center justify-center border">
           Загрузка редактора...
         </div>
-      </ClientOnly>
     </div>
   </div>
 </template>

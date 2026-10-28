@@ -1,10 +1,11 @@
 /* assets/css/v-md-fix.css */
 
-/* 1. Фикс для контейнера редактора */
+/* 1. Фикс для контейнера редактора
+   !!! display НЕ переопределяем: base-editor.css задаёт display:flex
+   для каркаса (тулбар + textarea + превью). */
 .v-md-editor {
   height: 600px !important;
   min-height: 600px !important;
-  display: block !important;
   border: 1px solid #ccc !important; /* Временно, чтобы видеть границы */
 }
 
@@ -29,4 +30,24 @@ html.dark .v-md-editor-iframe {
 /* 4. Фикс для тулбара, если он уехал */
 .v-md-editor__toolbar {
   border-bottom: 1px solid #ddd !important;
+}
+
+/* 5. Заголовок TOC (оглавление) — .v-md-editor__toc-nav-title
+   Базовые стили (размер шрифта 16px, hover-увеличение) уже даёт
+   base-editor.css. Здесь только тонкая настройка поверх базы. */
+.v-md-editor__toc-nav-title {
+  position: relative;
+  padding: 12px 16px !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #1f2937 !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+/* 6. Тёмная тема для заголовка TOC */
+html.dark .v-md-editor__toc-nav-title {
+  color: #e5e7eb !important;
+  border-bottom-color: #374151 !important;
 }
